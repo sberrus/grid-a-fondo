@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./index.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+        <title>Grid Layout con @SoyDalto &#128640;</title>
+    </head>
+    <body class="bg-dark text-light" id="index">
+        <header>
+            <nav class="navbar navbar-dark bg-dark border-bottom">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"> @SoyDalto Grid a Fondo </a>
+                </div>
+            </nav>
+        </header>
+        <main class="container-fluid p-0">
+            <!--Wrapper-->
+            <div class="content-header" id="header-bg">
+                <div id="header-body">
+                    <h1 class="title-header">Aprendiendo Grid a Fondo</h1>
+                    <span class="little-caption">Una poderosa herramienta para llevar los diseños a otro nivel</span>
+                </div>
+            </div>
+            <div class="container page-content">
+                <div id="content-header">
+                    <div id="navigator">
+                        <h5>Menú</h5>
+                    </div>
+                    <a href="#footer">footer</a>
+                    <div class="content-body">
+                        <h2 class="section-title">Primeros pasos con grid</h2>
+                        <p>
+                            Grid nos permite principalmente trabajar el layout en forma de rejilla. Es una poderosa opción
+                            que ofrece CSS para estructurar los elementos de un sitio web.
+                        </p>
+                        <p>
+                            Lo que buscaremos en este corto pero profundo curso es profundizar en el uso de los grids y como
+                            podemos usarlo como alternativa a herramientas como bootstrap
+                            <span class="little-caption">(aún te quiero &#128151;)</span>
+                        </p>
+                    </div>
+                </div>
+                <section>
+                    <h2 class="section-title">Estado Inicial</h2>
+                    <article>
+                        <h3 class="article-title">Estado inicial</h3>
+                        <p>Grid por defecto se comporta como un bloque, así que sus hijos también.</p>
+                        <div class="grid-example">
+                            <div class="container"><h5>Grid básico</h5></div>
+                            <div class="code-block"><code>display:</code> grid</div>
+                            <div id="grid-example-1" class="grid-container">
+                                <div class="grid-item">Container 1</div>
+                                <div class="grid-item">Container 2</div>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                <section>
+                    <h2 class="section-title">Instrucciones para los grid containers</h2>
+                    <article>
+                        <h3 class="article-title">grid-template-rowss</h3>
+                        <p>
+                            <code>grid-template-rowss</code> es una instruccion que se le asigna a los contenedores grid para
+                            controlar el alto de las columnas.
+                        </p>
+                        <div class="grid-example">
+                            <div class="container">
+                                <h5>Aplicar altura a 2 elementos</h5>
+                            </div>
+                            <div class="code-block">
+                                <code>display:</code> grid <br /><code>grid-template-rows:</code>
+                                150px 150px
+                            </div>
+                            <div id="grid-example-2" class="grid-container">
+                                <div class="grid-item">Container 1</div>
+                                <div class="grid-item">Container 2</div>
+                                <div class="grid-item">Container 3</div>
+                                <div class="grid-item">Container 4</div>
+                            </div>
+                        </div>
+                    </article>
+                    <article>
+                        <h3 class="article-title">grid-template-columnss</h3>
+                        <p>
+                            <code>grid-template-columnss</code> su comportamiento es similar que el de
+                            <code>grid-template-rowss</code> pero con la diferencia de que este organiza los elementos en
+                            columnas.
+                        </p>
+                        <div class="grid-example">
+                            <div class="container">
+                                <h5>Aplicar altura a 2 elementos</h5>
+                            </div>
+                            <div class="code-block">
+                                <code>display:</code> grid <br /><code>grid-template-columnss:</code>
+                                50% 50%
+                            </div>
+                            <div id="grid-example-3" class="grid-container">
+                                <div class="grid-item">Container 1</div>
+                                <div class="grid-item">Container 2</div>
+                                <div class="grid-item">Container 3</div>
+                                <div class="grid-item">Container 4</div>
+                            </div>
+                        </div>
+                    </article>
+                    <article>
+                        <h3 class="article-title">Rejilla con Grid</h3>
+                        <p>
+                            Ahora ya vistos <code>grid-template-columnss</code> y <code>grid-template-rowss</code>, uniendo
+                            ambas propiedades podemos empezar a hacer nuestras propias rejillas.
+                        </p>
+                        <div class="grid-example">
+                            <div class="container">
+                                <h5>Aplicar altura a 2 elementos</h5>
+                            </div>
+                            <div class="code-block">
+                                <code>display:</code> grid <br />
+                                <code>grid-template-rowss:</code> 150px 150px
+                                <br />
+                                <code>grid-template-columnss:</code> 50% 50%
+                            </div>
+                            <div id="controller" class="grid-container">
+                                <div class="grid-container">
+                                    <label for="">rows size: <code id="rowSize"></code></label
+                                    ><input type="range" min="0" max="300" value="150" id="rowSizeController" />
+                                </div>
+                                <div class="grid-container">
+                                    <label for="">columns size: <code id="columnSize"></code></label
+                                    ><input type="range" min="20" max="50" value="50" id="columnSizeController" />
+                                </div>
+                            </div>
+                            <div id="grid-example-4" class="grid-container">
+                                <div class="grid-item">Container 1</div>
+                                <div class="grid-item">Container 2</div>
+                                <div class="grid-item">Container 3</div>
+                                <div class="grid-item">Container 4</div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="obsolete">
+                        <h3 class="article-title">grid-gap [obsoleto]</h3>
+                        <p>
+                            En grid, los bordes entre grid-items (los hijos directos del grid container) el borde entre los
+                            items se llama gap.
+                        </p>
+                        <p>
+                            Hay que destacar que solo separará a los bordes entre los hijos, no los bordes entre los hijos y
+                            el grid-container.
+                        </p>
+                        <div class="grid-example">
+                            <div class="container"><h5>grid-gap</h5></div>
+                            <div class="code-block">
+                                <code>display:</code> grid
+                                <br />
+                                <code>grid-template-columnss:</code> 1fr 1fr
+                                <br />
+                                <code>grid-template-rowss:</code> 1fr 1fr <br />
+                                <code>grid-gap:</code>10px<br />
+                            </div>
+                            <div id="grid-gap1" class="grid-container">
+                                <div class="grid-item">Container 1</div>
+                                <div class="grid-item">Container 2</div>
+                                <div class="grid-item">Container 3</div>
+                                <div class="grid-item">Container 4</div>
+                            </div>
+                        </div>
+                        <div class="grid-example">
+                            <div class="container"><h5>grid-row-gap</h5></div>
+                            <div class="code-block">
+                                <code>display:</code> grid
+                                <br />
+                                <code>grid-template-columnss:</code> 1fr 1fr
+                                <br />
+                                <code>grid-template-rowss:</code> 1fr 1fr <br />
+                                <code>grid-row-gap:</code>10px<br />
+                            </div>
+                            <div id="grid-gap2" class="grid-container">
+                                <div class="grid-item">Container 1</div>
+                                <div class="grid-item">Container 2</div>
+                                <div class="grid-item">Container 3</div>
+                                <div class="grid-item">Container 4</div>
+                            </div>
+                        </div>
+                        <div class="grid-example">
+                            <div class="container">
+                                <h5>grid-column-gap</h5>
+                            </div>
+                            <div class="code-block">
+                                <code>display:</code> grid
+                                <br />
+                                <code>grid-template-columnss:</code> 1fr 1fr
+                                <br />
+                                <code>grid-template-rowss:</code> 1fr 1fr <br />
+                                <code>grid-column-gap:</code>10px<br />
+                            </div>
+                            <div id="grid-gap3" class="grid-container">
+                                <div class="grid-item">Container 1</div>
+                                <div class="grid-item">Container 2</div>
+                                <div class="grid-item">Container 3</div>
+                                <div class="grid-item">Container 4</div>
+                            </div>
+                        </div>
+                    </article>
+                    <article>
+                        <h3 class="article-title">medida <code>repeat()</code></h3>
+                        <p>
+                            Como vimos, un grid consta de columnas y filas y puede darse el caso en el que tengamos que
+                            indicar la misma medida para varias columnas, lo cual hacerlo a mano es más lento.
+                        </p>
+                        <div class="code-block">
+                            <h5>#1</h5>
+                            <code class="var">grid-template-columns:</code> 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+                        </div>
+                        <small class="text-info">En el ejemplo anterior vemos que hay 12 columnas con medidas 1fr</small>
+                        <p>
+                            Si bien se puede expresar de la manera anterior, esto hace que el código sea poco legible y muy
+                            largo. Para evitar esto tenemos el uso de la medida <code>repeat()</code>
+                        </p>
+                        <p>
+                            El comportamiento es como si fuera una función, le enviamos como primer argumento las veces que
+                            se va a repetir la medida y como segundo argumento la medida que se repetira. De esta forma el
+                            código anterior se indicaría de manera más sencila de la siguiente forma:
+                        </p>
+                        <div class="code-block">
+                            <h5>#2</h5>
+                            <code class="var">grid-template-columns:</code> <code class="selector">repeat</code>(
+                            <code class="var">12</code> , <code class="var">1fr</code> )
+                        </div>
+                        <p>
+                            Las dos instrucciones son equivalentes pero la segunda es mucho más legible y más fácil de
+                            comprender.
+                        </p>
+                        <div class="grid-example">
+                            <div class="container"><h5>Grid básico</h5></div>
+                            <div class="code-block">
+                                <code>display:</code> grid <br />
+                                <code class="var">grid-template-columns:</code> <code class="selector">repeat</code>(
+                                <code class="var">12</code> , <code class="var">1fr</code> ) <br />
+                            </div>
+                            <div id="grid-repeat" class="grid-container">
+                                <div class="grid-item">#1</div>
+                                <div class="grid-item">#2</div>
+                                <div class="grid-item">#3</div>
+                                <div class="grid-item">#4</div>
+                                <div class="grid-item">#5</div>
+                                <div class="grid-item">#6</div>
+                                <div class="grid-item">#7</div>
+                                <div class="grid-item">#8</div>
+                                <div class="grid-item">#9</div>
+                                <div class="grid-item">#10</div>
+                                <div class="grid-item">#11</div>
+                                <div class="grid-item">#12</div>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                <section>
+                    <h2 class="section-title">Medidas Especiales</h2>
+                    <p>
+                        Para determinar el tamaño de cada uno de los raíles que vamos a determinar, hacemos uso de las
+                        medidas estándar
+                        <code>px em rem % pt</code>. Pero en los grids también contamos con medidas especiales que nos
+                        serviran para crear diseños mucho más dinámicos.
+                    </p>
+                    <article>
+                        <h3 class="article-title">Medida fr</h3>
+                        <div class="grid-example">
+                            <p>
+                                La medida <code>fr</code> es una medida especial que nos permite controlar el tamaño de un
+                                elemento sin tener una medida Estática. Estas medidas son utilizadas por las insrucciones
+                                <code>grid-templete-columns</code> y <code>grid-templete-row</code> para definir los espacios
+                                de los raíles.
+                            </p>
+                            <div class="container">
+                                <h5>Aplicar fr1 a la ultima columna</h5>
+                            </div>
+                            <div class="code-block">
+                                <code>display:</code> grid <br /><code>grid-template-columnss:</code>
+                                5em 5em 1fr
+                            </div>
+                            <div id="grid-medida-fr" class="grid-container">
+                                <div class="grid-item grid-header">columna 1</div>
+                                <div class="grid-item grid-header">columna 2</div>
+                                <div class="grid-item grid-header">columna 3</div>
+                                <div class="grid-item">5em</div>
+                                <div class="grid-item">5em</div>
+                                <div class="grid-item active">1fr</div>
+                                <div class="grid-item">5em</div>
+                                <div class="grid-item">5em</div>
+                                <div class="grid-item active">1fr</div>
+                                <div class="grid-item">5em</div>
+                                <div class="grid-item">5em</div>
+                                <div class="grid-item active">1fr</div>
+                            </div>
+                            <p>Como se puede observar, la columna resaltada de naranja, tiene la propiedad 1fr.</p>
+                            <p>
+                                Lo que hace esta propiedad es repartir en tantas partes como fr`s haya. En este cuadro
+                                podemos observar que la columna 1 y 2 tienen medidas fijas <code>10em</code>, pero la columna
+                                con <code>fr1</code> indica al grid que el resto de espacio desde los elementos con medidas
+                                estáticas hasta el final del grid-container, sea para dicha columna.
+                            </p>
+                            <p>
+                                Otra de las particularidades de la medida
+                                <code>fr</code> es que pueden haber más tracks con medidas
+                                <code>fr</code>
+                            </p>
+                            <p>
+                                Lo que va a hacer el grid es obtener cada una de los
+                                <code>fr</code> que tiene cada raíl, y va a repartir equitativamente el espacio entre los fr
+                                que haya. EJ: Supongamos que hay 500px de espacio vacío, y tenemos 2 columnas con 1fr. Se
+                                divide el espacio entre la cantidad de fr que haya 500px/2fr = 250px; Esto es lo que asignará
+                                a cada uno de los fr.
+                            </p>
+                            <h5>UNA columna con <code>fr1</code></h5>
+                            <div class="code-block">
+                                <code>display:</code> grid <br /><code>grid-template-columnss:</code>
+                                5em 5em 1fr
+                            </div>
+                            <div id="grid-medida-fr1" class="grid-container">
+                                <div class="grid-item">5em</div>
+                                <div class="grid-item">5em</div>
+                                <div class="grid-item active">1fr</div>
+                                <div class="grid-item">5em</div>
+                                <div class="grid-item">5em</div>
+                                <div class="grid-item active">1fr</div>
+                                <div class="grid-item">5em</div>
+                                <div class="grid-item">5em</div>
+                                <div class="grid-item active">1fr</div>
+                            </div>
+                            <h5>DOS columna con <code>fr1</code></h5>
+                            <div class="code-block">
+                                <code>display:</code> grid <br /><code>grid-template-columnss:</code>
+                                10em 1fr 1fr
+                            </div>
+                            <div id="grid-medida-fr2" class="grid-container">
+                                <div class="grid-item">10em</div>
+                                <div class="grid-item active">1fr</div>
+                                <div class="grid-item active">1fr</div>
+                                <div class="grid-item">10em</div>
+                                <div class="grid-item active">1fr</div>
+                                <div class="grid-item active">1fr</div>
+                                <div class="grid-item">10em</div>
+                                <div class="grid-item active">1fr</div>
+                                <div class="grid-item active">1fr</div>
+                            </div>
+                            <h5>TRES columna con <code>fr1</code></h5>
+                            <div class="code-block">
+                                <code>display:</code> grid <br /><code>grid-template-columnss:</code>
+                                1fr 1fr 1fr
+                            </div>
+                            <div id="grid-medida-fr3" class="grid-container">
+                                <div class="grid-item active">1fr</div>
+                                <div class="grid-item active">1fr</div>
+                                <div class="grid-item active">1fr</div>
+                                <div class="grid-item active">1fr</div>
+                                <div class="grid-item active">1fr</div>
+                                <div class="grid-item active">1fr</div>
+                                <div class="grid-item active">1fr</div>
+                                <div class="grid-item active">1fr</div>
+                                <div class="grid-item active">1fr</div>
+                            </div>
+                            <h5>
+                                UNA columna con <code>medida fija</code> UNA con <code>fr1</code> y UNA con <code>fr2</code>
+                            </h5>
+                            <div class="code-block">
+                                <code>display:</code> grid <br /><code>grid-template-columnss:</code>
+                                10em 1fr 2fr
+                            </div>
+                            <div id="grid-medida-fr4" class="grid-container">
+                                <div class="grid-item">10em</div>
+                                <div class="grid-item">1fr</div>
+                                <div class="grid-item active">2fr</div>
+                                <div class="grid-item">10em</div>
+                                <div class="grid-item">1fr</div>
+                                <div class="grid-item active">2fr</div>
+                                <div class="grid-item">10em</div>
+                                <div class="grid-item">1fr</div>
+                                <div class="grid-item active">2fr</div>
+                            </div>
+                            <p>
+                                En este ejemplo lo que hace es repartir el espacio vacío entre la cantidad de fr que tenga la
+                                instrucción (1fr + 2fr = 3fr) y reparte el espacio entre esos fr. Suponiendo que el espacio
+                                es 500px, 500px/3fr = 166,66px/fr. Como tenemos un raíl con 2fr, entonces este raíl ocupara
+                                333,333px y el raíl con 1fr ocupara 166,66px
+                            </p>
+                        </div>
+                    </article>
+                </section>
+                <section>
+                    <h2 class="section-title">Instrucciones para los grid-items</h2>
+                    <article>
+                        <h3 class="article-title">grid-row y grid-column</h3>
+                        <p>Una de las caracteristicas de grid layout es que podemos controlar zonas dentro del grid.</p>
+                        <p>
+                            Las zonas son grupos de grids que nos permiten agruparlos y que se comporten como un solo
+                            elemento.
+                        </p>
+                        <p>Esta instrucción permite indicar con las lineas del grid, las dimensiones del area.</p>
+                        <h5>grid-column</h5>
+                        <p>
+                            Esta propiedad permite indicar en el grid desde que linea de la columna hasta que linea de la
+                            columna formará el ancho del area.
+                        </p>
+                        <p>Por lo tanto, si tenemos una instrucción:</p>
+                        <div class="code-block"><code>grid-column</code>: 1/3</div>
+                        <p>
+                            Indicará que ese elemento irá desde la linea 1 hasta la linea 3 y lo mismo para la instrucción
+                            grid-row, solo que esta indicará las lineas del row.
+                        </p>
+                        <div class="grid-example">
+                            <div class="container"><h5>Grid-column</h5></div>
+                            <div class="code-block">
+                                <code>display:</code> grid <br />
+                                <code>grid-template-columns</code>: 1fr 1fr
+                                <br />
+                                <code>grid-template-rows</code>: 1fr 1fr <br />
+                                <code>grid-column</code> 1/3
+                            </div>
+                            <div id="grid-column" class="grid-container">
+                                <div class="grid-item">
+                                    <code>grid-column: 1/3</code>
+                                </div>
+                                <div class="grid-item">Container 2</div>
+                                <div class="grid-item">Container 3</div>
+                                <div class="grid-item">Container 4</div>
+                                <div class="grid-item">Container 5</div>
+                                <div class="grid-item">Container 6</div>
+                                <div class="grid-item">Container 7</div>
+                                <div class="grid-item">Container 8</div>
+                                <div class="grid-item">Container 9</div>
+                            </div>
+                        </div>
+                        <div class="grid-example">
+                            <div class="container"><h5>Grid-row</h5></div>
+                            <div class="code-block">
+                                <code>display:</code> grid <br />
+                                <code>grid-template-columns</code>: 1fr 1fr
+                                <br />
+                                <code>grid-template-rows</code>: 1fr 1fr <br />
+                                <code>grid-column</code> 1/3
+                            </div>
+                            <div id="grid-row" class="grid-container">
+                                <div class="grid-item">
+                                    <code>grid-row: 1/3</code>
+                                </div>
+                                <div class="grid-item">Container 2</div>
+                                <div class="grid-item">Container 3</div>
+                                <div class="grid-item">Container 4</div>
+                                <div class="grid-item">Container 5</div>
+                                <div class="grid-item">Container 6</div>
+                                <div class="grid-item">Container 7</div>
+                                <div class="grid-item">Container 8</div>
+                                <div class="grid-item">Container 9</div>
+                            </div>
+                        </div>
+                        <div class="grid-example">
+                            <div class="container">
+                                <h5>Grid-row y grid-column</h5>
+                            </div>
+                            <div class="code-block">
+                                <code>display:</code> grid <br />
+                                <code>grid-template-columns</code>: 1fr 1fr
+                                <br />
+                                <code>grid-template-rows</code>: 1fr 1fr <br />
+                                <code class="selector">container 1</code> <br />
+                                <code>grid-column</code> 1/3 <br />
+                                <code>grid-row</code> 1/5 <br />
+                                <code class="selector">container 2</code> <br />
+                                <code>grid-column</code> 3/4 <br />
+                                <code>grid-row</code> 1/3 <br />
+                                <code class="selector">container 3</code> <br />
+                                <code>grid-column</code> 3/6 <br />
+                                <code>grid-row</code> 3/6
+                            </div>
+                            <div id="grid-row-column" class="grid-container">
+                                <div class="grid-item">
+                                    <code>grid-column: 1/3</code> <br />
+                                    <code>grid-row: 1/5</code>
+                                </div>
+                                <div class="grid-item">
+                                    <code>grid-column</code> 3/4 <br />
+                                    <code>grid-row</code> 1/3
+                                </div>
+                                <div class="grid-item">Container 3</div>
+                                <div class="grid-item">Container 4</div>
+                                <div class="grid-item">Container 5</div>
+                                <div class="grid-item">Container 6</div>
+                                <div class="grid-item">Container 7</div>
+                                <div class="grid-item">Container 8</div>
+                                <div class="grid-item">Container 9</div>
+                            </div>
+
+                            <p>
+                                Hay que recordar que las propiedades
+                                <code>grid-column</code> y <code>grid-row</code> son shorthands de las propiedades
+                                <code>grid-row-start</code>;<code>grid-row-end</code>
+                                y
+                                <code>grid-column-start</code>;<code>grid-column-end</code>.
+                            </p>
+                            <p>
+                                El primer valor del shorthand corresponde al
+                                <code>start</code> y el segundo al <code>end</code> siendo el siguiente código equivalente:
+                            </p>
+                            <div class="code-block"><code>grid-row</code>: 1/3 <br /></div>
+                            =
+                            <div class="code-block">
+                                <code>grid-row-start</code>: 1 <br />
+                                <code>grid-row-end</code>: 3 <br />
+                            </div>
+                        </div>
+                        <h3 class="article-title"><code>span</code></h3>
+                        <p>
+                            El valor span es muy útil para controlar los grid-row y grid-column, este valor se aplica al
+                            segundo valor correspondiente a las propiedades <code>end</code>
+                        </p>
+                        <p>
+                            <code>span</code> sirve para indicar a las propiedades end que corran tantas lineas
+                            consecutivamente al valor indicado después del span. ej:
+                        </p>
+                        <div class="block-code">
+                            <code>1 / <code class="selector">span</code> 3</code>
+                        </div>
+                        <p>
+                            El valor span indica en la instrucción anterior que el area será desde la linea 1 hasta la linea
+                            correspondiente a 1 + 3, por ende será la línea 4
+                        </p>
+                        <div class="grid-example">
+                            <div class="container">
+                                <h5>valor span</h5>
+                            </div>
+                            <div class="code-block">
+                                <code>display:</code> grid <br />
+                                <code>grid-template-columns</code>: 1fr 1fr
+                                <br />
+                                <code>grid-template-rows</code>: 1fr 1fr
+                                <br />
+                                <code>grid-column: </code> 1 / <code class="selector">span</code> 3
+                            </div>
+                            <div id="grid-span" class="grid-container">
+                                <div class="grid-item">
+                                    <code>grid-column: 1 / <code class="selector">span</code> 3</code>
+                                </div>
+                                <div class="grid-item">Container 2</div>
+                                <div class="grid-item">Container 3</div>
+                                <div class="grid-item">Container 4</div>
+                                <div class="grid-item">Container 5</div>
+                                <div class="grid-item">Container 6</div>
+                                <div class="grid-item">Container 7</div>
+                                <div class="grid-item">Container 8</div>
+                                <div class="grid-item">Container 9</div>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                <section>
+                    <h2 class="section-title">grid implícito y como manejarlo</h2>
+                    <article>
+                        <h3 class="article-title">¿Qué es grid implicito?</h3>
+                        <p>
+                            Supongamos que creamos un grid que tiene un <code>grid-template-columns: 1fr 1fr</code> y un
+                            <code>grid-template-rows: 100px 100px</code>
+                        </p>
+                        <p>
+                            Estamos hablando de un grid de 2x3 con sus respectivas dimensiones, pero que ocurre cuando en vez
+                            de 4 items tenemos 6.
+                        </p>
+                        <div class="grid-example">
+                            <div class="container"><h5>Grid implicito</h5></div>
+                            <div class="code-block">
+                                <code>display:</code> grid <br />
+                                <code>grid-template-columns:</code> repeat( 2 , 1fr ) <br />
+                                <code>grid-template-rows:</code> repeat( 2 , 100px )<br />
+                            </div>
+                            <div id="grid-implicito" class="grid-container">
+                                <div class="grid-item">Container 1</div>
+                                <div class="grid-item">Container 2</div>
+                                <div class="grid-item">Container 3</div>
+                                <div class="grid-item">Container 4</div>
+                                <div class="grid-item active"><b>item implicito</b></div>
+                                <div class="grid-item active"><b>item implicito</b></div>
+                            </div>
+                        </div>
+                        <p>
+                            Como podemos observar hay un div que se queda sin instrucciones respecto a sus dimensiones lo
+                            cual hace que este pierda la estética respecto a sus hermanos.
+                        </p>
+                        <p>
+                            Para manejar estos elementos hacemos uso de las propiedades <code>grid-auto-rows</code>
+                            <code>grid-auto-columns</code> y <code>grid-auto-flow</code>
+                        </p>
+                        <h3 class="article-title">grid-auto-flow</h3>
+                        <p>
+                            Antes de indicar el manejo de las dimensiones de los items implicitos, hay que hablar de la
+                            dirección de los nuevos elementos.
+                        </p>
+                        <p>
+                            Por defecto grid, al momento de crear nuevos elementos dentro del layout los posiciona en filas
+                            <code>row</code> poniendo el nuevo carril justo debajo del anterior. Al momento de que hayan
+                            items implicitos estos iran poniendose debajo de los elementos explicitos.
+                        </p>
+                        <p>
+                            Para cambiar la dirección de los mismos hacemos uso de <code>grid-auto-flow</code> el cual indica
+                            la orientación de los elementos implicitos.
+                        </p>
+                        <div class="grid-example">
+                            <div class="container"><h5>Grid implicito orientacion column</h5></div>
+                            <div class="code-block">
+                                <code>display:</code> grid <br />
+                                <code>grid-template-columns:</code> repeat( 2 , 1fr ) <br />
+                                <code>grid-template-rows:</code> repeat( 2 , 100px )<br />
+                                <code>grid-auto-flow:</code>column<br />
+                            </div>
+                            <div id="grid-implicito-column" class="grid-container">
+                                <div class="grid-item">Container 1</div>
+                                <div class="grid-item">Container 2</div>
+                                <div class="grid-item">Container 3</div>
+                                <div class="grid-item">Container 4</div>
+                                <div class="grid-item active"><b>item implicito</b></div>
+                                <div class="grid-item active"><b>item implicito</b></div>
+                            </div>
+                        </div>
+                        <p>
+                            De esta forma podemos controlar donde se irán posicionando los elementos implicitos dentro del
+                            layout.
+                        </p>
+                        <h3 class="article-title">grid-auto-column</h3>
+                        <p>
+                            Con esta propiedad indicamos al grid que los elementos implicitos tendrán las dimensiones
+                            especificadas en esta instrucción.
+                        </p>
+                        <div class="grid-example">
+                            <div class="container"><h5>Grid-auto-column</h5></div>
+                            <div class="code-block">
+                                <code>display:</code> grid <br />
+                                <code>grid-template-columns:</code> repeat( 2 , 1fr ) <br />
+                                <code>grid-template-rows:</code> repeat( 2 , 100px )<br />
+                                <code>grid-auto-rows:</code>75px<br />
+                            </div>
+                            <div id="grid-auto-column" class="grid-container">
+                                <div class="grid-item">Container 1</div>
+                                <div class="grid-item">Container 2</div>
+                                <div class="grid-item">Container 3</div>
+                                <div class="grid-item">Container 4</div>
+                                <div class="grid-item active"><b>item implicito</b></div>
+                                <div class="grid-item active"><b>item implicito</b></div>
+                                <div class="grid-item active"><b>item implicito</b></div>
+                                <div class="grid-item active"><b>item implicito</b></div>
+                            </div>
+                        </div>
+                        <div class="grid-example">
+                            <div class="container"><h5>Grid-auto-column</h5></div>
+                            <div class="code-block">
+                                <code>display:</code> grid <br />
+                                <code>grid-template-columns:</code> repeat( 2 , 1fr ) <br />
+                                <code>grid-template-rows:</code> repeat( 2 , 100px )<br />
+                                <code>grid-auto-flow:</code> column <br />
+                                <code>grid-auto-columns:</code>75px 1fr<br />
+                            </div>
+                            <div id="grid-auto-row" class="grid-container">
+                                <div class="grid-item">Container 1</div>
+                                <div class="grid-item">Container 2</div>
+                                <div class="grid-item">Container 3</div>
+                                <div class="grid-item">Container 4</div>
+                                <div class="grid-item active"><b>item implicito</b></div>
+                                <div class="grid-item active"><b>item implicito</b></div>
+                                <div class="grid-item active"><b>item implicito</b></div>
+                                <div class="grid-item active"><b>item implicito</b></div>
+                            </div>
+                        </div>
+                        <h3 class="article-title">Rellenando huecos con <code>grid-auto-flow: dense</code></h3>
+                        <p>
+                            Cuando jugamos con los grid-columns y grid-rows de los items puede llegar a suceder que el grid
+                            empieze a dejarnos espacios vacíos en todo el grid
+                        </p>
+                        <div class="grid-example">
+                            <div class="container"><h5>Grid con huecos en el layout</h5></div>
+                            <div class="code-block">
+                                <code class="sleector">#grid-no-dense</code> { <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>grid-template-columns</code>: repeat(2, 1fr) 100px 1fr; <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>grid-template-rows</code>: repeat(3, 125px); <br />
+                                } <br />
+                                <code class="selector">#grid-no-dense .grid-item:first-child</code> { <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>grid-column</code>: 1/3; <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>grid-row</code>: 1/3; <br />
+                                } <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code class="selector">#grid-no-dense .grid-item:nth-child(3)</code>
+                                { <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>grid-column</code>: 5/7; <br />
+                                } <br />
+                                <code class="selector">#grid-no-dense .grid-item:nth-child(5)</code> { <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>grid-column</code>: 5/8; <br />
+                                } <br />
+                            </div>
+                            <div id="grid-no-dense" class="grid-container">
+                                <div class="grid-item">#1</div>
+                                <div class="grid-item">#2</div>
+                                <div class="grid-item">#3</div>
+                                <div class="grid-item">#4</div>
+                                <div class="grid-item">#5</div>
+                                <div class="grid-item">#6</div>
+                                <div class="grid-item">#7</div>
+                                <div class="grid-item">#8</div>
+                                <div class="grid-item">#9</div>
+                                <div class="grid-item">#10</div>
+                                <div class="grid-item">#11</div>
+                                <div class="grid-item">#12</div>
+                            </div>
+                        </div>
+                        <div class="grid-example">
+                            <div class="container">
+                                <h5>Grid con propiedad <code>grid-auto-flow: dense</code></h5>
+                            </div>
+                            <div class="code-block">
+                                <code class="sleector">#grid-dense</code> { <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>grid-template-columns</code>: repeat(2, 1fr) 100px 1fr; <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>grid-template-rows</code>: repeat(3, 125px); <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>grid-auto-flow</code>: dense <br />
+                                } <br />
+                                <code class="selector">#grid-dense .grid-item:first-child</code> { <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>grid-column</code>: 1/3; <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>grid-row</code>: 1/3; <br />
+                                } <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code class="selector">#grid-dense .grid-item:nth-child(3)</code> {
+                                <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>grid-column</code>: 5/7; <br />
+                                } <br />
+                                <code class="selector">#grid-dense .grid-item:nth-child(5)</code> { <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>grid-column</code>: 5/8; <br />
+                                } <br />
+                            </div>
+                            <div id="grid-dense" class="grid-container">
+                                <div class="grid-item">#1</div>
+                                <div class="grid-item">#2</div>
+                                <div class="grid-item">#3</div>
+                                <div class="grid-item">#4</div>
+                                <div class="grid-item">#5</div>
+                                <div class="grid-item">#6</div>
+                                <div class="grid-item">#7</div>
+                                <div class="grid-item">#8</div>
+                                <div class="grid-item">#9</div>
+                                <div class="grid-item">#10</div>
+                                <div class="grid-item">#11</div>
+                                <div class="grid-item">#12</div>
+                            </div>
+                        </div>
+                        <p>
+                            Ya en este ejemplo, se puede observar que la propiedad <code>grid-auto-flow: dense</code> hace
+                            que el layout rellene automaticamente los huecos vacíos que tiene el grid.
+                        </p>
+                    </article>
+                </section>
+                <section>
+                    <h2 class="section-title">Grid Dinámico</h2>
+                    <p>
+                        Una de las ventajas de grid es que podemos hacer diseños responsives sin necesidad de usar
+                        mediaquerys lo cual nos permite realizar diseños complejos con menos lineas de código y mucho más
+                        ordenado.
+                    </p>
+                    <p>
+                        La función <code>repeat()</code> que se usa en los grids, es una función que nos permite ingresar
+                        palabras clave que nos proporcionará comportamientos que ayudarán la diseño a ser mas repsonsivo.
+                    </p>
+                    <p>
+                        Los valores explicados a continuación solo se pueden usar dentro de la función
+                        <code>repeat()</code> que esta a su vez solo se usa en las propiedades
+                        <code>grid-template-rows</code>, <code>grid-template-columns</code>, <code>grid-auto-rows</code> y
+                        <code>grid-auto-columns</code>.
+                    </p>
+                    <article>
+                        <h3 class="article-title">Valor <code>min-content</code></h3>
+                        <p>
+                            Este valor indica a la columna o a la fila del grid que será tan ancho o alto como lo sea la
+                            cadena o elemento más pequeño que la contenga.
+                        </p>
+                        <div class="grid-example">
+                            <div class="container">
+                                <h5>Grid con <code>repeat(3, min-content)</code></h5>
+                            </div>
+                            <div class="code-block">
+                                <code>display:</code> grid <br />
+                                <code>grid-template-columns:</code> repeat(3, min-content)<br />
+                                <code>grid-template-rows:</code> repeat(3,50px) <br />
+                            </div>
+                            <small class="text-info">Usar el controlador para observar el comportamiento</small>
+                            <div id="font-controller" class="grid-container">
+                                <div class="grid-container">
+                                    <label for="">font-size: <code id="fontSize"></code></label
+                                    ><input type="range" min="1" max="2" step=".01" value="1" id="fontSizeController" />
+                                </div>
+                            </div>
+                            <div id="grid-min-content" class="grid-container">
+                                <div class="grid-item">Container 1</div>
+                                <div class="grid-item">#2</div>
+                                <div class="grid-item">Container 3</div>
+                                <div class="grid-item">Container 4</div>
+                                <div class="grid-item">#5</div>
+                                <div class="grid-item">Container 6</div>
+                                <div class="grid-item"><div class="square">[custom square]</div></div>
+                                <div class="grid-item">#8</div>
+                                <div class="grid-item">Container 9</div>
+                            </div>
+                            <p>
+                                En la primera columna, se puede observar que es tan ancha como el
+                                <span class="bg-dark text-info">cuadro</span> y las columnas 2 y 3 tan anchas como la cadena
+                                más larga dentro de esta.
+                            </p>
+                        </div>
+                    </article>
+                    <article>
+                        <h3 class="article-title">Valor max-content</h3>
+                        <p>
+                            Este valor es la contraparte del valor <code>min-content</code> indicando este que la columna
+                            será tan larga como el elemento más largo encontrado en el mismo
+                        </p>
+                        <p>
+                            Una de las particularidades es que en el valor <code>min-content</code> buscará el elemento más
+                            pequeño como por ejemplo, en una cadena de caractéres, buscará la palabra más larga dentro de
+                            esta, y será esta palabra la que indicará el ancho de la columna
+                        </p>
+                        <p>
+                            En el caso del valor <code>max-content</code>, este usará la cadena entera de caractéres sin
+                            hacer brake-line en los textos
+                        </p>
+                        <div class="grid-example">
+                            <div class="container">
+                                <h5>Grid con valor <code>repeat(3, max-content)</code></h5>
+                            </div>
+                            <div class="code-block">
+                                <code class="selector">#grid-max-content</code> { <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>place-content</code>: center; <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>grid-template-columns</code>: repeat(3, max-content); <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>grid-template-rows</code>: repeat(3, 150px); <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>font-size</code>: 1em; <br />
+                                } <br />
+                                <code class="selector">#grid-max-content .square</code> { <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>height</code>: 100px; <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>width</code>: 200px; <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>border</code>: 1px solid #000; <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>background-color</code>: rgba(86, 255, 255, 0.658); <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>margin</code>: auto; <br />
+                                } <br />
+                            </div>
+                            <div id="grid-max-content" class="grid-container">
+                                <div class="grid-item">Container 1</div>
+                                <div class="grid-item">#2</div>
+                                <div class="grid-item active">Container 3 Container 3 Container 3</div>
+                                <div class="grid-item">Container 4</div>
+                                <div class="grid-item">#5</div>
+                                <div class="grid-item">Container 6</div>
+                                <div class="grid-item"><div class="square">[custom square]</div></div>
+                                <div class="grid-item">#8</div>
+                                <div class="grid-item">Container 9</div>
+                            </div>
+                            <p>
+                                En este ejemplo podemos observar en la tercera columna que la cadena mantiene su linea y no
+                                genera ningun brake-line lo cual hace que esa columna sea tan ancha como larga sea la cadena
+                                de caractéres.
+                            </p>
+                        </div>
+                    </article>
+                    <article>
+                        <h3 class="article-title">Valor minmax()</h3>
+                        <p>
+                            <code>minmax()</code> es una función de CSS que nos permite indicar el valor mínimo y máximo que
+                            va a tener una columna para hacerla responsive. A esta función se le pasan 2 valores
+                            <code
+                                >minmax(<code class="var">dimensión_mínima</code>,<code class="var">dimensión_máxima</code
+                                >)</code
+                            >.
+                        </p>
+                        <p>
+                            Este valor indicará a la columna/fila que reparta el espacio entre los valores
+                            <code class="var">mínimo</code> y <code class="var">máximo</code>
+                        </p>
+                        <div class="grid-example">
+                            <div class="container"><h5>Grid con valor minmax()</h5></div>
+                            <div class="code-block">
+                                <code class="selector">#grid-minmax</code> { <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>place-content</code>: center; <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>grid-template-columns</code>: repeat(3, minmax(150px, 200px));
+                                <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>grid-template-rows</code>: repeat(3, 150px); <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>font-size</code>: 1em; <br />
+                                } <br />
+                            </div>
+                            <small class="text-info"
+                                >Hacer resize en la pantalla para poder observar el comportamiento.</small
+                            >
+                            <div id="grid-minmax" class="grid-container">
+                                <div class="grid-item">Container 1</div>
+                                <div class="grid-item">Container 2</div>
+                                <div class="grid-item">Container 3</div>
+                                <div class="grid-item">Container 4</div>
+                                <div class="grid-item">Container 5</div>
+                                <div class="grid-item">Container 6</div>
+                                <div class="grid-item">Container 7</div>
+                                <div class="grid-item">Container 8</div>
+                                <div class="grid-item">Container 9</div>
+                            </div>
+                            <p>
+                                Como se puede apreciar al hacer resize de la pantalla. Con este valor podemos indicarle al
+                                grid que tan grande serán las columnas oscilando entre 150px mínimo y 300px máximo
+                                <code>minmax(<code class="var">150px</code>,<code class="var">300px</code>)</code>.
+                            </p>
+                        </div>
+                    </article>
+                    <article>
+                        <h3 class="article-title">
+                            Valor
+                            <code
+                                >minmax(<code class="var">min-content/max-content</code>,<code class="var"
+                                    >min-content/max-content</code
+                                >)</code
+                            >
+                        </h3>
+                        <p>
+                            Otra de las particularidades del valor <code>minmax()</code> es que podemos pasarle como
+                            argumentos, los valores <code>min-content</code> y <code>max-content</code>
+                        </p>
+                        <div class="grid-example">
+                            <div class="container">
+                                <h5>
+                                    Grid con
+                                    <code
+                                        >repeat(<code class="selector"
+                                            >minmax(<code class="var">min-content</code>,<code class="var">200px</code
+                                            >)</code
+                                        >)</code
+                                    >
+                                </h5>
+                            </div>
+                            <div class="code-block">
+                                <code class="selector">#grid-minmax-min-content</code> { <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>place-content</code>: center; <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>grid-template-columns</code>: repeat(2, minmax(min-content,
+                                200px)) max-content; <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>grid-template-rows</code>: repeat(3, 150px); <br />
+                                } <br />
+                                <code class="selector">#grid-minmax-min-content .square</code> { <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>height</code>: 100px; <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>width</code>: 200px; <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>border</code>: 1px solid #000; <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>background-color</code>: rgba(86, 255, 255, 0.658); <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>margin</code>: auto; <br />
+                                } <br />
+                            </div>
+                            <div id="grid-minmax-min-content" class="grid-container">
+                                <div class="grid-item">Container 1</div>
+                                <div class="grid-item">#2</div>
+                                <div class="grid-item active">Container 3 Container 3 Container 3</div>
+                                <div class="grid-item">Container 4</div>
+                                <div class="grid-item">#5</div>
+                                <div class="grid-item">Container 6</div>
+                                <div class="grid-item"><div class="square">[custom square]</div></div>
+                                <div class="grid-item">#8</div>
+                                <div class="grid-item">Container 9</div>
+                            </div>
+                            <p>
+                                En este ejemplo podemos observar que al hacer resize de la pantalla las columnas 1 y 2 tienen
+                                la propiedad
+                                <code>minmax(<code class="var">min-content</code>,<code class="var">200px</code>)</code>
+                                haciendo que estas mantengan las proporciones indicadas en el <code>minmax()</code> y la
+                                última columna tiene un <code>max-content</code>, obteniendo las dimensiones del tercer item
+                                que tiene una cadena de texto larga.
+                            </p>
+                        </div>
+                    </article>
+                    <article>
+                        <h3 class="article-title">valor <code>repeat(auto-fill,minmax(xx,xx))</code></h3>
+                        <p>
+                            Este valor se usa en el primer argumento de la función <code class="selector">repeat()</code> y
+                            este nos permite modificar el flow de los grid items
+                        </p>
+                        <p>
+                            Cuando trabajamos con la funcion <code class="selector">repeat()</code> anteriormente, le
+                            enviabamos como primer argumento un INT indicando a cuantas columnas iba a afectar. Pero que
+                            ocurre si queremos que al haber pantallas más grandes, vaya acomodando los elementos con
+                            propiedades determinadas?
+                        </p>
+                        <p>
+                            Para solucionar ello utilizamos la palabra clave <code class="var">auto-fill</code>. Esta palabra
+                            clave indica al grid que si en el espacio que ocupa el grid pueden caber elementos unos al lado
+                            de otros los vaya acomodando.
+                        </p>
+                        <div class="grid-example">
+                            <div class="container">
+                                <h5>Grid con <code class="var">auto-fill</code></h5>
+                            </div>
+                            <div class="code-block">
+                                <code class="selector">#grid-auto-fill</code> { <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>grid-template-columns</code>: repeat(auto-fill, minmax(50px,
+                                1fr)); <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>grid-auto-rows</code>: 50px; <br />
+                                } <br />
+                            </div>
+                            <div id="grid-auto-fill" class="grid-container">
+                                <div class="grid-item">$</div>
+                                <div class="grid-item">$</div>
+                                <div class="grid-item">$</div>
+                                <div class="grid-item">$</div>
+                                <div class="grid-item">$</div>
+                                <div class="grid-item">$</div>
+                                <div class="grid-item">$</div>
+                                <div class="grid-item">$</div>
+                                <div class="grid-item">$</div>
+                                <div class="grid-item">$</div>
+                                <div class="grid-item">$</div>
+                                <div class="grid-item">$</div>
+                                <div class="grid-item">$</div>
+                                <div class="grid-item">$</div>
+                                <div class="grid-item">$</div>
+                                <div class="grid-item">$</div>
+                                <div class="grid-item">$</div>
+                                <div class="grid-item">$</div>
+                            </div>
+                        </div>
+                    </article>
+                    <article>
+                        <h3 class="article-title">Valor <code>repeat(auto-fit,minmax(xx,xx))</code></h3>
+                        <p>
+                            El valor <code>auto-fit</code> es la contraparte de <code>auto-fill</code>, lo que hace es
+                            escalar los elementos para que todos ocupen el espacio asignado previamente modificar su
+                            posición.
+                        </p>
+                        <div class="grid-example">
+                            <div class="container">
+                                <h5>Grid con <code>auto-fit</code></h5>
+                            </div>
+                            <div class="code-block">
+                                <code class="selector">#grid-auto-fit</code> {
+                                <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;<code>grid-template-columns</code>: repeat(auto-fit, minmax(50px,
+                                1fr)); <br />
+                                } <br />
+                            </div>
+                            <div id="grid-auto-fit" class="grid-container">
+                                <div class="grid-item">Container 1</div>
+                                <div class="grid-item">Container 2</div>
+                                <div class="grid-item">Container 3</div>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                <section>
+                    <h2 class="section-title">Alineación y control de flujo</h2>
+                    <p>
+                        En esta sección vamos a ver como se puede controlar la alineación y control de flujo dentro de un
+                        grid.
+                    </p>
+                    <article>
+                        <h3 class="article-title">Instrucciones para los items del grid</h3>
+                        <p>
+                            Estas instrucciones afectan a todos los hijos del grid por igual, permitiendo darles valores para
+                            modificar su layout en los ejes vertical y horizontal.
+                        </p>
+                        <p>Estas instrucciones modifican al conjunto de elementos que forman parte del grid (grid-items).</p>
+                        <h4>Instrucciones Eje Horizontal</h4>
+                        <h5><code>justify-items</code></h5>
+                        <p>
+                            La propiedad <code>justify-items</code> nos permite controlar el flujo del eje horizontal de los
+                            elementos del grid. Al aplicar estos valores los grid items internos serán tan anchos como lo
+                            indique su <code>max-content</code> en el caso de que no tenga las propiedades
+                            <code>width</code> y <code>height</code>.
+                        </p>
+                        <ul>
+                            <li>
+                                <h5>stretch</h5>
+                                <p>
+                                    Este valor es la que vienen por defecto los grid items y estas ocupan todo el espacio
+                                    disponible dentro de la columna indicada.
+                                </p>
+                            </li>
+                            <li>
+                                <h5>start</h5>
+                                <p>Este valor posiciona el contenido lo mas a la izquierda (start)</p>
+                            </li>
+                            <li>
+                                <h5>Center</h5>
+                                <p>Este valor centra los items.</p>
+                            </li>
+                            <li>
+                                <h5>end</h5>
+                                <p>Este valor posiciona a los elementos lo más bajo del espacio asignado.</p>
+                            </li>
+                        </ul>
+                        <h4>Instrucciones para el eje vertical</h4>
+                        <h5><code>align-items</code></h5>
+                        <p>
+                            Esta instrucción alinia los items de forma vertical permitiendo controlar su disposición en el
+                            layout del grid. Comparte las mismas características que <code>justify-items</code> respecto a
+                            las dimensiones del grid.
+                        </p>
+                        <ul>
+                            <li>
+                                <h5>stretch</h5>
+                                <p>
+                                    Este valor es la que vienen por defecto los grid items y estas ocupan todo el espacio
+                                    disponible dentro de la fila indicada.
+                                </p>
+                            </li>
+                            <li>
+                                <h5>start</h5>
+                                <p>Este valor posiciona en lo mas alto del espacio asignado.</p>
+                            </li>
+                            <li>
+                                <h5>Center</h5>
+                                <p>Este valor</p>
+                            </li>
+                            <li>
+                                <h5>end</h5>
+                                <p>Este valor posiciona a los elementos a la derecha del grid (end)</p>
+                            </li>
+                        </ul>
+                        <div class="grid-example">
+                            <div class="container"><h5>Instrucciones para los items</h5></div>
+                            <div class="code-block"><code>display:</code> grid</div>
+
+                            <div id="controller-container" class="grid-container">
+                                <div id="vertical-controller" class="p-1">
+                                    <h5>Controladores eje horizontal</h5>
+                                    <div class="code-block">
+                                        <code>justify-items:</code> <code class="var" id="horizontal-value">stretch</code>
+                                        <br />
+                                    </div>
+                                    <fieldset>
+                                        <div class="controller-item stretch-input">
+                                            <label>stretch</label>
+                                            <input type="radio" name="horizontal" id="stretch" checked />
+                                        </div>
+                                        <div class="controller-item start-input">
+                                            <label>start</label> <input type="radio" name="horizontal" id="start" />
+                                        </div>
+                                        <div class="controller-item center-input">
+                                            <label>center</label> <input type="radio" name="horizontal" id="center" />
+                                        </div>
+                                        <div class="controller-item end-input">
+                                            <label>end</label> <input type="radio" name="horizontal" id="end" />
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div id="vertical-controller" class="p-1">
+                                    <h5>Controladores eje vertical</h5>
+                                    <div class="code-block">
+                                        <code>align-items:</code> <code class="var" id="vertical-value">stretch</code> <br />
+                                    </div>
+                                    <fieldset>
+                                        <div class="controller-item stretch-input">
+                                            <label>stretch</label>
+                                            <input type="radio" name="vertical" id="stretch" checked />
+                                        </div>
+                                        <div class="controller-item start-input">
+                                            <label>start</label> <input type="radio" name="vertical" id="start" />
+                                        </div>
+                                        <div class="controller-item center-input">
+                                            <label>center</label> <input type="radio" name="vertical" id="center" />
+                                        </div>
+                                        <div class="controller-item end-input">
+                                            <label>end</label> <input type="radio" name="vertical" id="end" />
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div id="grid-item-dynamic" class="grid-container">
+                                <div class="grid-item">Container 1</div>
+                                <div class="grid-item">Container 2</div>
+                                <div class="grid-item">Container 3</div>
+                            </div>
+                        </div>
+                    </article>
+                    <article>
+                        <h3 class="article-title">Instrucciones para el grid container</h3>
+                        <p>
+                            Este conjunto de instrucciones nos permizten modificar las dimensiones y el layout del
+                            grid-container modificando sus rows y sus columns.
+                        </p>
+                        <p>
+                            Los instrucciones son semanticamente similares ya que solo deberemos cambiar
+                            <code>xxx-items</code> por <code>xxx-content</code> y en comportamiento son similares.
+                        </p>
+                        <h4>Alineación Horizontal</h4>
+                        <h5><code>justify-content</code></h5>
+                        <p>
+                            Con esta propiedad podemos modificar el comportamiento de las columnas del grid. Esto se aprecia
+                            principalmente en layouts con columnas de unidades fijas, no se va a apreciar correctamente si
+                            estamos trabajando con la medida <code>fr</code>
+                        </p>
+                        <p>
+                            Esta propiedad nos permite, al igual y con los mismos valores de la instrucción
+                            <code>justify-items</code>, modificar la posición en el eje horizontal de las columnas.
+                        </p>
+                        <p>
+                            Como se ha indicado antes, esta propiedad recibe los mismos valores que las instrucciones para
+                            los items <code>start</code> <code>center</code> <code>end</code>. Pero esta incluye otros
+                            valores como los son <code>space-around</code> <code>space-between</code>
+                            <code>space-evenly</code>. Estos valores comparten el mismo comportamiento que tienen en las
+                            propiedades flex.
+                        </p>
+                        <h4>Alineación Vertical</h4>
+                        <h5><code>align-content</code></h5>
+                        <p>
+                            para resumir, es la propiedad que nos permite modificar la posición de los elementos del grid en
+                            su eje vertical.
+                        </p>
+                        <p>Este comparte los mismos valores que <code>justify-content</code>.</p>
+                        <div id="grid-content-controller" class="grid-container">
+                            <div id="vertical-content-controller" class="p-1">
+                                <h5>Controladores eje horizontal</h5>
+                                <div class="code-block">
+                                    <code>justify-content:</code>
+                                    <code class="var" id="horizontal-content-value">start</code> <br />
+                                </div>
+                                <fieldset>
+                                    <div class="controller-item start-input">
+                                        <label>start</label>
+                                        <input type="radio" name="horizontal-content" id="start" checked />
+                                    </div>
+                                    <div class="controller-item center-input">
+                                        <label>center</label> <input type="radio" name="horizontal-content" id="center" />
+                                    </div>
+                                    <div class="controller-item end-input">
+                                        <label>end</label> <input type="radio" name="horizontal-content" id="end" />
+                                    </div>
+                                    <div class="controller-item space-around-input">
+                                        <label>space-around</label>
+                                        <input type="radio" name="horizontal-content" id="space-around" />
+                                    </div>
+                                    <div class="controller-item space-between-input">
+                                        <label>space-between</label>
+                                        <input type="radio" name="horizontal-content" id="space-between" />
+                                    </div>
+                                    <div class="controller-item space-evenly-input">
+                                        <label>space-evenly</label>
+                                        <input type="radio" name="horizontal-content" id="space-evenly" />
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div id="vertical-content-controller" class="p-1">
+                                <h5>Controladores eje vertical</h5>
+                                <div class="code-block">
+                                    <code>align-content:</code> <code class="var" id="vertical-content-value">start</code>
+                                    <br />
+                                </div>
+                                <fieldset>
+                                    <div class="controller-item start-input">
+                                        <label>start</label>
+                                        <input type="radio" name="vertical-content" id="start" checked />
+                                    </div>
+                                    <div class="controller-item center-input">
+                                        <label>center</label> <input type="radio" name="vertical-content" id="center" />
+                                    </div>
+                                    <div class="controller-item end-input">
+                                        <label>end</label> <input type="radio" name="vertical-content" id="end" />
+                                    </div>
+                                    <div class="controller-item space-around-input">
+                                        <label>space-around</label>
+                                        <input type="radio" name="vertical-content" id="space-around" />
+                                    </div>
+                                    <div class="controller-item space-between-input">
+                                        <label>space-between</label>
+                                        <input type="radio" name="vertical-content" id="space-between" />
+                                    </div>
+                                    <div class="controller-item space-evenly-input">
+                                        <label>space-evenly</label>
+                                        <input type="radio" name="vertical-content" id="space-evenly" />
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="grid-example">
+                            <div class="container"><h5>Instrucciones para el container</h5></div>
+                            <div class="code-block">
+                                <code>display:</code> grid <br />
+                                <code>height</code>: 350px; <br />
+                                <code>grid-template-rows</code>: repeat(3, 80px); <br />
+                                <code>grid-template-columns</code>: repeat(3, 80px); <br />
+                            </div>
+                            <div id="grid-content-dynamic" class="grid-container">
+                                <div class="grid-item">Container 1</div>
+                                <div class="grid-item">Container 2</div>
+                                <div class="grid-item">Container 3</div>
+                                <div class="grid-item">Container 4</div>
+                                <div class="grid-item">Container 5</div>
+                                <div class="grid-item">Container 6</div>
+                                <div class="grid-item">Container 7</div>
+                                <div class="grid-item">Container 8</div>
+                                <div class="grid-item">Container 9</div>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                <!-- 
+                    SECTION TEMPLATE
+                    //////////////////
+                <section>
+                    <h2 class="section-title">section-title</h2>
+                    <article>
+                        <h3 class="article-title">article-title</h3>
+                        <p>description</p>
+                        <div class="grid-example">
+                            <div class="container"><h5>Grid básico</h5></div>
+                            <div class="code-block"><code>display:</code> grid</div>
+                            <div id="grid-example-1" class="grid-container">
+                                <div class="grid-item">Container 1</div>
+                                <div class="grid-item">Container 2</div>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                ////////////////////////
+            --></div>
+            <div id="top-bottom-container">
+                <a href="#" class="to-top" draggable="false"><i class="bi bi-arrow-up-circle"></i></a>
+                <a href="#footer" class="to-bottom" draggable="false"><i class="bi bi-arrow-up-circle"></i></a>
+            </div>
+            <!--Fin Wrapper-->
+        </main>
+        <footer id="footer"><a href="#footer">[footer]</a></footer>
+        <script src="controllers/gridLayoutController.js"></script>
+        <script src="controllers/navigatorController.js"></script>
+        <script src="controllers/gridFontSizeController.js"></script>
+        <script src="controllers/gridItemsController.js"></script>
+        <script src="controllers/gridContainerController.js"></script>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+            crossorigin="anonymous"
+        />
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>
